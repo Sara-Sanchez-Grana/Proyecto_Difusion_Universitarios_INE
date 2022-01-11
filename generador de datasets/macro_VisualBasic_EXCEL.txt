@@ -1,0 +1,15 @@
+Private Sub CommandButton1_click()
+
+Dim Answer As Integer
+Dim strFile As String
+     
+strFile = Chr(34) & ThisWorkbook.Path & "/ejecutar.bat" & Chr(34)
+Answer = MsgBox("Esta acción cerrará este libro de Excel y guardará los cambios" & vbNewLine & "¿Desea continuar?", vbYesNo + vbQuestion, "Generador urls API JSON INE")
+
+If Answer = vbYes Then
+Shell (strFile)
+ThisWorkbook.Close SaveChanges:=True
+Else
+'do nothing
+End If
+End Sub
